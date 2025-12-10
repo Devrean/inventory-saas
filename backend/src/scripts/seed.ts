@@ -5,101 +5,96 @@ import { hashPassword } from "../modules/auth/auth.helpers";
 const users = [
   {
     id: 1,
-    username: "erean",
-    email: "citeren28@gmail.com",
-    password: "123456",
+    username: "admin",
+    email: "admin@gmail.com",
+    password: "admin123",
     is_verified: true,
   },
   {
     id: 2,
-    username: "eren",
-    email: "citeren04@gmail.com",
-    password: "123456",
+    username: "erean",
+    email: "erean123@gmail.com",
+    password: "erean123",
+    is_verified: true,
+  },
+  {
+    id: 3,
+    username: "mike",
+    email: "mikej@gmail.com",
+    password: "mikej",
     is_verified: true,
   },
 ];
 const companies = [
   {
     id: 1,
-    name: "erean Company1",
-    description: "erean Description1",
-    owner_id: 1,
+    name: "A101",
+    description: "A101 FABRKİADAN HALKA",
+    owner_id: 2,
   },
   {
     id: 2,
-    name: "erean Company2",
-    description: "erean Description2",
-    owner_id: 1,
-  },
-  {
-    id: 3,
-    name: "eren Company1",
-    description: "eren Description1",
-    owner_id: 2,
-  },
-  {
-    id: 4,
-    name: "eren Company2",
-    description: "eren Description2",
-    owner_id: 2,
-  },
+    name: "BIM",
+    description: "BIM BIM BIM",
+    owner_id: 3,
+  }
 ];
 const products = [
   {
     id: 1,
-    name: "Product1",
-    description: "Product 1 Description",
-    price: 1000,
+    name: "Kola",
+    description: "Kola 330 ML",
+    price: 50,
     company_id: 1,
   },
   {
     id: 2,
-    name: "Product2",
-    description: "Product 2 Description",
-    price: 2000,
+    name: "Kahve",
+    description: "Nescafe 3ü1 arada",
+    price: 7.50,
     company_id: 1,
   },
   {
     id: 3,
-    name: "Product3",
-    description: "Product 3 Description",
-    price: 1500,
-    company_id: 2,
+    name: "Halley",
+    description: "Halley 10'lu",
+    price: 72,
+    company_id: 1,
   },
   {
     id: 4,
-    name: "Product4",
-    description: "Product 4 Description",
-    price: 500,
-    company_id: 2,
+    name: "Puding",
+    description: "Puding 500g",
+    price: 50,
+    company_id: 1,
   },
   {
     id: 5,
-    name: "Product5",
-    description: "Product 5 Description",
-    price: 1000,
-    company_id: 3,
+    name: "Ayran",
+    description: "Dost ayran",
+    price: 8,
+    company_id: 2,
   },
   {
     id: 6,
-    name: "Product6",
-    description: "Product 6 Description",
-    price: 1600,
-    company_id: 3,
+    name: "Kola",
+    description: "Kola 330ML",
+    price: 50,
+    company_id: 2,
   },
   {
     id: 7,
-    name: "Product7",
-    description: "Product 7 Description",
-    price: 10400,
-    company_id: 4,
+    name: "Meyvesuyu",
+    description: "Jucy Meyvesuyu",
+    price: 15,
+    company_id: 2,
   },
   {
     id: 8,
-    name: "Product4",
-    description: "Product 4 Description",
-    price: 10100,
-    company_id: 4,
+    name: "Süt",
+    description: "Tam yağlı süt",
+    price: 25,
+    company_id: 2,
   },
 ];
 const roles = [
@@ -109,69 +104,41 @@ const roles = [
   },
   {
     id: 2,
-    name: "MEMBER",
+    name: "MODERATOR",
   },
   {
     id: 3,
-    name: "MODERATOR",
+    name: "MEMBER",
   },
 ];
 const warehouses = [
   {
     id: 1,
-    name: "Warehouse1",
-    capacity: 50,
-    address: "Samsun",
+    name: "A101 Samsun",
+    capacity: 70,
+    address: "Cumhuriyet Meydanı Samsun",
     company_id: 1,
   },
   {
     id: 2,
-    name: "Warehouse2",
+    name: "A101 BAFRA",
     capacity: 50,
-    address: "Bafra",
+    address: "Bafra kent meydan",
     company_id: 1,
   },
   {
     id: 3,
-    name: "Warehouse3",
-    capacity: 50,
-    address: "Sinop",
+    name: "BIM Trabzon",
+    capacity: 70,
+    address: "Ortahisar Trabzon",
     company_id: 2,
   },
   {
     id: 4,
-    name: "Warehouse4",
+    name: "BIM Gümüşhane",
     capacity: 50,
-    address: "İstanbul",
+    address: "Gümüşhane Merkez",
     company_id: 2,
-  },
-  {
-    id: 5,
-    name: "Warehouse5",
-    capacity: 50,
-    address: "Samsun",
-    company_id: 3,
-  },
-  {
-    id: 6,
-    name: "Warehouse6",
-    capacity: 50,
-    address: "Samsun",
-    company_id: 3,
-  },
-  {
-    id: 7,
-    name: "Warehouse7",
-    capacity: 50,
-    address: "Samsun",
-    company_id: 4,
-  },
-  {
-    id: 8,
-    name: "Warehouse8",
-    capacity: 50,
-    address: "Sinop",
-    company_id: 4,
   },
 ];
 const permissions = [
@@ -252,22 +219,22 @@ const companyMembers = [
   {
     member_id: 2,
     company_id: 1,
+    role: CompanyRole.OWNER,
+  },
+  {
+    member_id: 3,
+    company_id: 1,
     role: CompanyRole.MEMBER,
+  },
+  {
+    member_id: 3,
+    company_id: 2,
+    role: CompanyRole.OWNER,
   },
   {
     member_id: 2,
     company_id: 2,
-    role: CompanyRole.ADMIN,
-  },
-  {
-    member_id: 1,
-    company_id: 3,
     role: CompanyRole.MEMBER,
-  },
-  {
-    member_id: 1,
-    company_id: 4,
-    role: CompanyRole.ADMIN,
   },
 ];
 const rolePermissions = [
@@ -344,103 +311,103 @@ const rolePermissions = [
     permission_id: 18,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 1,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 2,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 3,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 4,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 9,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 10,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 11,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 12,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 13,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 14,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 15,
   },
   {
-    role_id: 2,
+    role_id: 3,
     permission_id: 16,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 1,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 2,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 3,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 4,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 6,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 9,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 10,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 11,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 12,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 13,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 14,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 15,
   },
   {
-    role_id: 3,
+    role_id: 2,
     permission_id: 16,
   },
 ];
@@ -453,13 +420,23 @@ const rolesOnUsers = [
   {
     assigned_by: "SYSTEM",
     role_id: 2,
-    user_id: 1,
+    user_id: 2,
+  },
+  {
+    assigned_by: "SYSTEM",
+    role_id: 3,
+    user_id: 3,
   },
 ];
 const warehouseManagers = [
   {
     user_id: 2,
     warehouse_id: 1,
+    role: WarehouseRole.ADMIN,
+  },
+  {
+    user_id: 3,
+    warehouse_id: 1,
     role: WarehouseRole.MEMBER,
   },
   {
@@ -468,74 +445,106 @@ const warehouseManagers = [
     role: WarehouseRole.ADMIN,
   },
   {
-    user_id: 1,
-    warehouse_id: 5,
+    user_id: 3,
+    warehouse_id: 3,
+    role: WarehouseRole.ADMIN,
+  },
+  {
+    user_id: 2,
+    warehouse_id: 3,
     role: WarehouseRole.MEMBER,
   },
   {
-    user_id: 1,
-    warehouse_id: 6,
+    user_id: 3,
+    warehouse_id: 4,
     role: WarehouseRole.ADMIN,
   },
+  
 ];
 const warehouseProducts = [
   {
     product_id: 1,
-    stock: 50,
+    stock: 40,
     warehouse_id: 1,
   },
   {
     product_id: 2,
     stock: 35,
+    warehouse_id: 1,
+  },
+  {
+    product_id: 3,
+    stock: 15,
+    warehouse_id: 1,
+  },
+  {
+    product_id: 4,
+    stock: 5,
+    warehouse_id: 1,
+  },
+  {
+    product_id: 1,
+    stock: 20,
+    warehouse_id: 2,
+  },
+  {
+    product_id: 2,
+    stock: 34,
     warehouse_id: 2,
   },
   {
     product_id: 3,
-    stock: 23,
-    warehouse_id: 3,
+    stock: 50,
+    warehouse_id: 2,
   },
   {
     product_id: 4,
-    stock: 32,
-    warehouse_id: 4,
+    stock: 20,
+    warehouse_id: 2,
   },
   {
     product_id: 5,
-    stock: 20,
-    warehouse_id: 5,
+    stock: 4,
+    warehouse_id: 3,
   },
   {
     product_id: 6,
-    stock: 34,
-    warehouse_id: 6,
+    stock: 65,
+    warehouse_id: 3,
   },
   {
     product_id: 7,
-    stock: 50,
-    warehouse_id: 7,
+    stock: 55,
+    warehouse_id: 3,
   },
   {
     product_id: 8,
-    stock: 20,
-    warehouse_id: 8,
+    stock: 15,
+    warehouse_id: 3,
+  },
+  {
+    product_id: 5,
+    stock: 10,
+    warehouse_id: 4,
+  },
+  {
+    product_id: 6,
+    stock: 24,
+    warehouse_id: 4,
+  },
+  {
+    product_id: 7,
+    stock: 30,
+    warehouse_id: 4,
+  },
+  {
+    product_id: 8,
+    stock: 3,
+    warehouse_id: 4,
   },
 ];
 const buildSeedFile = async () => {
   try {
-    // delete current datas
-    await prisma.user.deleteMany({});
-    await prisma.rolesOnUsers.deleteMany({});
-    await prisma.warehouseProduct.deleteMany({});
-    await prisma.warehouseManager.deleteMany({});
-    await prisma.product.deleteMany({});
-    await prisma.company.deleteMany({});
-    await prisma.companyMember.deleteMany({});
-    await prisma.role.deleteMany({});
-    await prisma.rolePermissions.deleteMany({});
-    await prisma.rolesOnUsers.deleteMany({});
-    await prisma.warehouse.deleteMany({});
-    await prisma.permission.deleteMany({});
-
     // add users
     for (let user of users) {
       user.password = await hashPassword(user.password);
